@@ -1,0 +1,14 @@
+yc dataproc cluster create \
+  --name hadoop-cluster \
+  --folder-id b1gc16aa090nk1a159kt \
+  --service-account-id ajepto4590qa06tq2m5t \
+  --autoscaling-service-account-id ajepto4590qa06tq2m5t \
+  --zone ru-central1-d \
+  --ui-proxy=true \
+  --environment PRODUCTION \
+  --version 2.1 \
+  --services YARN,MAPREDUCE,HDFS \
+  --ssh-public-keys-file ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDfu9E61Ei1ewcsNTCNGdu8Re9hZuGqmdfqlqWFsOHcxj37OlTuUCJpraXrWENQNZmgtFdv84Th5uHCl+8Ws6eakpezd5I3ttFCvo5I9FtO3CIXuT3K0gBMb3LmOaBZlI3KSvo2ZwESBTdbuwzdewa0eNCu86XYnAkq0KaBX04qRMb22Fi7U7kFR0nb654jwEqguWL9Oat/yrhemthKfPUPq32Z+kvdeK/mpulS2/Bgj2aZt8dzQINxubWEDpwjbUg+svhS3MKvr9rG9+mYgUDuw7r2YkSXfVbR1cjiUutj45FWm3SZ1GaiHxwvCcxw0l5YCv+W7NvCh8H+8vjeywCD \
+  --oslogin=false \
+  --subcluster name=dataproc721_subcluster858,role=MASTERNODE,hosts-count=1,subnet-id=fl8k0ed528tqrfja23vf,resource-preset=s3-c2-m8,disk-type=network-ssd,disk-size=20 \
+  --subcluster name=dataproc721_subcluster632,role=DATANODE,hosts-count=1,subnet-id=fl8k0ed528tqrfja23vf,resource-preset=s3-c2-m8,disk-type=network-ssd,disk-size=20

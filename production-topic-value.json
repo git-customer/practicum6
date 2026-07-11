@@ -1,0 +1,12 @@
+{
+ "$schema": "http://json-schema.org/draft-07/schema#",
+ "title": "logs_message",
+ "type": "object",
+ "properties": {
+   "id": { "type": "string" },
+   "hostname": { "type": "string" },
+   "status": { "type": "string" },
+   "msg_body": { "type": "string" }
+ },
+ "required": ["id", "hostname", "status"]
+}

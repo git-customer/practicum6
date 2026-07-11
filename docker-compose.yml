@@ -1,0 +1,43 @@
+services:
+  producer:
+    hostname: producer
+    build: .
+    command: python Producer.py
+    volumes:
+      - /usr/local/share/ca-certificates/Yandex:/app/certs
+    environment:
+      - KAFKA_USER=${KAFKA_PRODUCER_USER}
+      - KAFKA_PASSWORD=${KAFKA_PRODUCER_PASSWORD}
+      - KAFKA_BROKERS=${KAFKA_BROKERS}
+      - SCHEMA_REGISTRY_URLS=${SCHEMA_REGISTRY_URLS}
+      - KAFKA_TOPIC=${KAFKA_TOPIC}
+      - CA_CERT=${CA_CERT}
+
+  consumer:
+    hostname: consumer
+    build: .
+    command: python Consumer.py
+    volumes:
+      - /usr/local/share/ca-certificates/Yandex:/app/certs
+    environment:
+      - KAFKA_USER=${KAFKA_CONSUMER_USER}
+      - KAFKA_PASSWORD=${KAFKA_CONSUMER_PASSWORD}
+      - KAFKA_BROKERS=${KAFKA_BROKERS}
+      - SCHEMA_REGISTRY_URLS=${SCHEMA_REGISTRY_URLS}
+      - KAFKA_TOPIC=${KAFKA_TOPIC}
+      - CA_CERT=${CA_CERT}
+
+  consumer-hadoop:
+    hostname: consumer-hadoop
+    build: .
+    command: python Hadoop.py
+    volumes:
+      - /usr/local/share/ca-certificates/Yandex:/app/certs
+    environment:
+      - KAFKA_USER=${KAFKA_CONSUMER_USER}
+      - KAFKA_PASSWORD=${KAFKA_CONSUMER_PASSWORD}
+      - KAFKA_BROKERS=${KAFKA_BROKERS}
+      - SCHEMA_REGISTRY_URLS=${SCHEMA_REGISTRY_URLS}
+      - KAFKA_TOPIC=${KAFKA_TOPIC}
+      - CA_CERT=${CA_CERT}
+      - HADOOP_MASTERNODE=${HADOOP_MASTERNODE}

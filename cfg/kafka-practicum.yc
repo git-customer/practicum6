@@ -1,0 +1,24 @@
+yc managed-kafka cluster create \
+  --name kafka-practicum \
+  --environment PRODUCTION \
+  --network-id enpnb3lc8mcapjqcro6u \
+  --folder-id b1gc16aa090nk1a159kt \
+  --deletion-protection=false \
+  --subnet-ids e9bq9d7hcg6f56rn4ljj,e2lem5vkufmdkk5avlug,fl8k0ed528tqrfja23vf,ajc8at938nvptsq2aa18 \
+  --version 3.9 \
+  --zone-ids ru-central1-b,ru-central1-d,ru-central1-a \
+  --brokers-count 1 \
+  --assign-public-ip=true \
+  --schema-registry=true \
+  --datatransfer-access=false \
+  --kafka-ui-enabled=false \
+  --resource-preset s4a-c2-m8 \
+  --disk-size 32 \
+  --disk-type network-ssd \
+  --zookeeper-resource-preset s4a-c2-m8 \
+  --zookeeper-disk-size 10 \
+  --zookeeper-disk-type network-ssd \
+  --log-retention-ms 86400000 \
+  --log-segment-bytes 10485760 \
+  --disk-size-autoscaling disk-size-limit=343597383680,planned-usage-threshold=80,emergency-usage-threshold=90 \
+  --maintenance-window type=weekly,day=SAT,hour=24
