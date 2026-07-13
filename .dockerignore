@@ -1,0 +1,24 @@
+# Исключаем локальные секреты
+.env
+.env.*
+secrets/
+certs/
+
+# Исключаем конфигурацию локальных утилит
+.config/
+kafkactl/
+
+# Исключаем кэш и виртуальное окружение Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Исключаем файлы Git
+.git
+.gitignore
+
+# Исключаем документацию и логи
+*.md
+*.log
