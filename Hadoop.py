@@ -109,9 +109,9 @@ if __name__ == "__main__":
             logger.info(f"Сообщение '{hdfs_message}' записано в HDFS по пути '{hdfs_file}'")
 
             # Чтение файла из HDFS для проверки
-            with hdfs_client.read(hdfs_file, encoding="utf-8") as reader:
-                content = reader.read()
-            logger.info(f"Проверка чтения файла '{hdfs_file}' из HDFS. Содержимое файла: '{content.strip()}'")
+            #with hdfs_client.read(hdfs_file, encoding="utf-8") as reader:
+            #    content = reader.read()
+            #logger.info(f"Проверка чтения файла '{hdfs_file}' из HDFS. Содержимое файла: '{content.strip()}'")
 
             # Ручной коммит после обработки сообщения
             consumer.commit(msg, asynchronous=False)
