@@ -3,6 +3,7 @@ services:
     hostname: producer
     build: .
     command: python Producer.py
+    restart: unless-stopped
     volumes:
       - /usr/local/share/ca-certificates/Yandex:/app/certs
     environment:
@@ -17,6 +18,7 @@ services:
     hostname: consumer
     build: .
     command: python Consumer.py
+    restart: unless-stopped
     volumes:
       - /usr/local/share/ca-certificates/Yandex:/app/certs
     environment:
@@ -31,6 +33,7 @@ services:
     hostname: consumer-hadoop
     build: .
     command: python Hadoop.py
+    restart: unless-stopped
     volumes:
       - /usr/local/share/ca-certificates/Yandex:/app/certs
     environment:
